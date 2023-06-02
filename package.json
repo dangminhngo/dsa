@@ -1,0 +1,26 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "Source code for The Last Algorithms Course You'll Need",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "dev": "tsx watch .",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "dsa",
+    "algorithms",
+    "data structure"
+  ],
+  "author": "dangminhngo <dangminhngo.dev@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.3"
+  }
+}
