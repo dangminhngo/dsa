@@ -1,24 +1,8 @@
-interface IListNode<T> {
-  value: T
-  next?: ListNode<T>
-}
-
-class ListNode<T> implements IListNode<T> {
+class ListNode<T> {
   constructor(public value: T, public next?: ListNode<T>) {}
 }
 
-interface ISinglyLinkedList<T> {
-  get length(): number
-  log(): string
-  removeAt(index: number): T | undefined
-  remove(value: T): T | undefined
-  get(index: number): T | undefined
-  unshift(value: T): void
-  push(value: T): void
-  insertAt(value: T, index: number): void
-}
-
-export default class SinglyLinkedList<T> implements ISinglyLinkedList<T> {
+export default class SinglyLinkedList<T> {
   constructor(private head?: ListNode<T>, private tail?: ListNode<T>) {}
 
   get length() {
@@ -35,7 +19,7 @@ export default class SinglyLinkedList<T> implements ISinglyLinkedList<T> {
     return count
   }
 
-  log() {
+  toString() {
     if (!this.head) return "This singly linked list is empty"
     let temp: ListNode<T> | undefined = this.head
     let str = ""
@@ -127,7 +111,7 @@ export default class SinglyLinkedList<T> implements ISinglyLinkedList<T> {
     return
   }
 
-  unshift(value: T) {
+  prepend(value: T) {
     const node = new ListNode(value)
 
     if (!this.head) {
@@ -139,7 +123,7 @@ export default class SinglyLinkedList<T> implements ISinglyLinkedList<T> {
     this.head = node
   }
 
-  push(value: T) {
+  append(value: T) {
     const node = new ListNode(value)
 
     if (!this.tail) {
