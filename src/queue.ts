@@ -25,7 +25,7 @@ export default class Queue<T> {
 
   dequeue(): T | undefined {
     if (!this.head) return
-    this.length--
+    this.length = Math.max(0, this.length - 1)
 
     const head = this.head
     this.head = this.head.next
