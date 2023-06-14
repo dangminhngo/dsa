@@ -1,4 +1,4 @@
-import binarySearch from "~/binary-search"
+import binarySearch from "~/dsa/binary-search"
 
 test("binary search array", () => {
   const foo = [1, 3, 4, 69, 71, 81, 90, 99, 420, 1337, 69420]

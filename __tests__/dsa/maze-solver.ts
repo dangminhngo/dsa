@@ -1,4 +1,4 @@
-import solve, { type Point } from "~/maze-solver"
+import solve, { type Point } from "~/dsa/maze-solver"
 
 test("maze solver", () => {
   const maze = [

@@ -1,4 +1,4 @@
-import DoublyLinkedList from "~/doubly-linked-list"
+import DoublyLinkedList from "~/dsa/doubly-linked-list"
 
 test("doubly linked list", () => {
   const list = new DoublyLinkedList()

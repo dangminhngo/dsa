@@ -1,4 +1,4 @@
-import Queue from "~/queue"
+import Queue from "~/dsa/queue"
 
 test("queue", () => {
   const queue = new Queue()
