@@ -37,6 +37,10 @@ export default class Stack<T> {
     return this.head?.value
   }
 
+  isEmpty(): boolean {
+    return !!this.head
+  }
+
   toString(): string {
     let temp = this.head
     let str = ""
