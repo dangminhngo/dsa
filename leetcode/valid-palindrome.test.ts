@@ -1,4 +1,4 @@
-import isPalindrome from "~/leetcode/valid-palindrome"
+import isPalindrome from "./valid-palindrome"
 
 test("valid palindrome", () => {
   expect(isPalindrome("A man, a plan, a canal: Panama")).toBeTruthy()

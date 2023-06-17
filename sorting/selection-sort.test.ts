@@ -1,4 +1,4 @@
-import selectionSort from "~/dsa/insertion-sort"
+import selectionSort from "./insertion-sort"
 
 test("selection sort", () => {
   const arr = [1, 4, 5, 2, 9, 7, 3, 6, 8]

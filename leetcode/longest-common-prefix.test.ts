@@ -1,4 +1,4 @@
-import longestCommonPrefix from "~/leetcode/longest-common-prefix"
+import longestCommonPrefix from "./longest-common-prefix"
 
 test("longest common prefix", () => {
   expect(longestCommonPrefix(["flower", "flow", "flight"])).toBe("fl")

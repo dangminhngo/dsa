@@ -1,4 +1,4 @@
-import mergeAlternately from "~/leetcode/merge-string-alternately"
+import mergeAlternately from "./merge-string-alternately"
 
 test("merge string alternately", () => {
   expect(mergeAlternately("abc", "pqr")).toBe("apbqcr")

@@ -1,4 +1,4 @@
-import containsDuplicate from "~/leetcode/contains-duplicate"
+import containsDuplicate from "./contains-duplicate"
 
 test("contains duplicate", () => {
   expect(containsDuplicate([1, 2, 3, 1])).toBeTruthy()

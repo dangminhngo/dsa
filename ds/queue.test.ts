@@ -1,4 +1,4 @@
-import Queue from "~/dsa/queue"
+import Queue from "./queue"
 
 test("queue", () => {
   const queue = new Queue()
@@ -6,8 +6,6 @@ test("queue", () => {
   queue.enqueue(3)
   queue.enqueue(4)
   queue.enqueue(2)
-
-  console.log(queue.toString())
 
   expect(queue.length).toBe(4)
 

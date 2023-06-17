@@ -1,4 +1,4 @@
-import isPowerOfTwo from "~/leetcode/power-of-two"
+import isPowerOfTwo from "./power-of-two"
 
 test("power of two", () => {
   expect(isPowerOfTwo(-21)).toBeFalsy()

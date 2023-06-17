@@ -1,4 +1,4 @@
-import checkStraightLine from "~/leetcode/straight-line"
+import checkStraightLine from "./straight-line"
 
 test("check if it is a straight line", () => {
   expect(

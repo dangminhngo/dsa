@@ -1,4 +1,4 @@
-import mergeSort from "~/dsa/merge-sort"
+import mergeSort from "./merge-sort"
 
 test("merge sort", () => {
   const firstArr = [38, 27, 43, 10]

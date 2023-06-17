@@ -1,4 +1,4 @@
-import summaryRanges from "~/leetcode/summary_ranges"
+import summaryRanges from "./summary-ranges"
 
 test("summary ranges", () => {
   expect(summaryRanges([0, 1, 2, 4, 5, 7])).toStrictEqual(["0->2", "4->5", "7"])

@@ -1,4 +1,4 @@
-import linearSearch from "~/dsa/linear-search"
+import linearSearch from "./linear-search"
 
 test("linear search array", () => {
   const foo = [1, 3, 4, 69, 71, 81, 90, 99, 420, 1337, 69420]

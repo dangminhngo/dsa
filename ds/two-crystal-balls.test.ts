@@ -1,4 +1,4 @@
-import twoCrystalBalls from "~/dsa/two-crystal-balls"
+import twoCrystalBalls from "./two-crystal-balls"
 
 test("two crystal balls", () => {
   const NUMBER_OF_FLOORS = 10_000

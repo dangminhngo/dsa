@@ -1,4 +1,4 @@
-import SinglyLinkedList from "~/dsa/singly-linked-list"
+import SinglyLinkedList from "./singly-linked-list"
 
 test("singly linked list", () => {
   const list = new SinglyLinkedList()

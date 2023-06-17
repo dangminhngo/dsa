@@ -1,4 +1,4 @@
-import isValid from "~/leetcode/valid-parentheses"
+import isValid from "./valid-parentheses"
 
 test("valid parentheses", () => {
   expect(isValid("()")).toBeTruthy()

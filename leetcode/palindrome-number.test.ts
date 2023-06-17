@@ -1,4 +1,4 @@
-import isPalindrome from "~/leetcode/palindrome-number"
+import isPalindrome from "./palindrome-number"
 
 test("palindrome number", () => {
   expect(isPalindrome(-121)).toBeFalsy()

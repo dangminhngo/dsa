@@ -1,4 +1,4 @@
-import lengthOfLastWord from "~/leetcode/length-of-last-word"
+import lengthOfLastWord from "./length-of-last-word"
 
 test("length of last word", () => {
   expect(lengthOfLastWord("Hello World")).toBe(5)

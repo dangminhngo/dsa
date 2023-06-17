@@ -1,4 +1,4 @@
-import romanToInt from "~/leetcode/roman-to-integer"
+import romanToInt from "./roman-to-integer"
 
 test("roman to integer", () => {
   expect(romanToInt("III")).toBe(3)

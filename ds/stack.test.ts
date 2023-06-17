@@ -1,4 +1,4 @@
-import Stack from "~/dsa/stack"
+import Stack from "./stack"
 
 test("stack", () => {
   const stack = new Stack()

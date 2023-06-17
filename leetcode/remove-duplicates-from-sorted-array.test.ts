@@ -1,4 +1,4 @@
-import removeDuplicates from "~/leetcode/remove-duplicates-from-sorted-array"
+import removeDuplicates from "./remove-duplicates-from-sorted-array"
 
 test("remove duplicates", () => {
   const firstNums = [1, 1, 2]

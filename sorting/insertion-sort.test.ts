@@ -1,4 +1,4 @@
-import insertionSort from "~/dsa/insertion-sort"
+import insertionSort from "./insertion-sort"
 
 test("insertion sort", () => {
   const arr = [1, 4, 5, 2, 9, 7, 3, 6, 8]
