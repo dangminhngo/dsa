@@ -3,22 +3,35 @@ import SinglyLinkedList from "./singly-linked-list"
 test("singly linked list", () => {
   const list = new SinglyLinkedList()
 
-  list.append(21)
-  list.append(15)
-  list.append(45)
-  list.prepend(8)
-  list.prepend(12)
+  expect(list.length).toBe(0)
+  list.addFirst(1)
+  list.addFirst(3)
+  list.addFirst(6)
+  expect(list.toArray()).toStrictEqual([6, 3, 1])
+  expect(list.length).toBe(3)
 
+  list.addLast(7)
+  list.addLast(9)
+  list.addLast(13)
+  expect(list.toArray()).toStrictEqual([6, 3, 1, 7, 9, 13])
+  expect(list.length).toBe(6)
+
+  expect(list.contains(6)).toBeTruthy()
+  expect(list.contains(10)).toBeFalsy()
+
+  expect(list.getFirst()).toBe(6)
+  expect(list.getLast()).toBe(13)
+
+  expect(list.indexOf(6)).toBe(0)
+  expect(list.indexOf(7)).toBe(3)
+  expect(list.indexOf(13)).toBe(5)
+
+  expect(list.removeAt(0)).toBe(6)
   expect(list.length).toBe(5)
-  expect(list.toString()).toBe("12 -> 8 -> 21 -> 15 -> 45")
-  expect(list.get(3)).toBe(15)
+  expect(list.remove(7))
+  expect(list.length).toBe(4)
 
-  list.insertAt(99, 3)
-  expect(list.get(3)).toBe(99)
-
-  list.insertAt(32, 0)
-  expect(list.get(0)).toBe(32)
-
-  const removedValue2 = list.removeAt(0)
-  expect(removedValue2).toBe(32)
+  expect(list.toArray()).toStrictEqual([3, 1, 9, 13])
+  list.set(1, 8)
+  expect(list.get(1)).toBe(8)
 })

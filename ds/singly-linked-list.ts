@@ -3,115 +3,17 @@ class ListNode<T> {
 }
 
 export default class SinglyLinkedList<T> {
-  constructor(private head?: ListNode<T>, private tail?: ListNode<T>) {}
+  constructor(
+    public length: number = 0,
+    private head?: ListNode<T>,
+    private tail?: ListNode<T>
+  ) {}
 
-  get length() {
-    if (!this.head) return 0
-
-    let temp: ListNode<T> | undefined = this.head
-    let count = 0
-
-    while (temp) {
-      count++
-      temp = temp.next
-    }
-
-    return count
-  }
-
-  toString() {
-    if (!this.head) return "This singly linked list is empty"
-    let temp: ListNode<T> | undefined = this.head
-    let str = ""
-
-    while (temp) {
-      str += `${temp.value}`
-      temp = temp.next
-
-      if (temp) {
-        str += " -> "
-      }
-    }
-
-    return str
-  }
-
-  removeAt(index: number) {
-    if (!this.head) return
-
-    if (index === 0) {
-      const value = this.head.value
-      this.head = this.head.next
-      return value
-    }
-
-    let temp: ListNode<T> | undefined = this.head
-    let count = 0
-    let prev: ListNode<T> | undefined
-
-    while (temp) {
-      if (count === index) {
-        break
-      }
-      prev = temp
-      temp = temp.next
-    }
-
-    if (!temp) return
-
-    if (prev) {
-      prev.next = temp.next
-      return temp.value
-    }
-
-    return
-  }
-
-  remove(value: T) {
-    if (!this.head) return
-
-    if (this.head.value === value) {
-      this.head = this.head.next
-      return value
-    }
-
-    let temp: ListNode<T> | undefined = this.head
-    let prev: ListNode<T> | undefined
-
-    while (temp) {
-      if (temp.value === value) {
-        break
-      }
-      prev = temp
-      temp = temp.next
-    }
-
-    if (!temp) return
-
-    if (prev) {
-      prev.next = temp.next
-      return value
-    }
-
-    return
-  }
-
-  get(index: number) {
-    let temp: ListNode<T> | undefined = this.head
-    let count = 0
-
-    while (temp) {
-      if (count === index) {
-        return temp.value
-      }
-      count++
-      temp = temp.next
-    }
-
-    return
-  }
-
-  prepend(value: T) {
+  /*
+   *  Insert a node with the value to the beginning of the list
+   * */
+  addFirst(value: T): void {
+    this.length++
     const node = new ListNode(value)
 
     if (!this.head) {
@@ -123,7 +25,11 @@ export default class SinglyLinkedList<T> {
     this.head = node
   }
 
-  append(value: T) {
+  /*
+   * Insert a node with the value to the end of the list
+   * */
+  addLast(value: T): void {
+    this.length++
     const node = new ListNode(value)
 
     if (!this.tail) {
@@ -135,27 +41,145 @@ export default class SinglyLinkedList<T> {
     this.tail = node
   }
 
-  insertAt(value: T, index: number) {
-    if (!this.head) return
+  /*
+   * Return the node value at the specified index. If not, return undefined
+   * */
+  get(index: number): T | undefined {
+    if (index < 0 || index >= this.length) return undefined
 
-    const node = new ListNode(value)
+    for (let curr = this.head, count = 0; curr; curr = curr.next, count++) {
+      if (count === index) {
+        return curr.value
+      }
+    }
 
-    if (index === 0) {
-      node.next = this.head.next
-      this.head = node
+    return undefined
+  }
+
+  /*
+   * Get the first node value in the list (head)
+   * */
+  getFirst(): T | undefined {
+    return this.head?.value
+  }
+
+  /*
+   * Get the last node value in the list (tail)
+   * */
+  getLast(): T | undefined {
+    return this.tail?.value
+  }
+
+  /*
+   * Return true if the node value is present in the list
+   * */
+  contains(value: T): boolean {
+    for (let curr = this.head; curr; curr = curr.next) {
+      if (curr.value === value) return true
+    }
+    return false
+  }
+
+  /*
+   * Find the index of the specified value in the list. If not, return -1
+   * */
+  indexOf(value: T): number {
+    for (let curr = this.head, count = 0; curr; curr = curr.next, count++) {
+      if (curr.value === value) return count
+    }
+
+    return -1
+  }
+
+  /*
+   * Remove a node at the specified index, return boolean
+   * */
+  removeAt(index: number): T | undefined {
+    if (index < 0 || index >= this.length) {
       return
     }
 
-    let temp: ListNode<T> | undefined = this.head
-    let count = 0
+    if (index === 0) {
+      this.length = Math.max(0, this.length - 1)
+      const head = this.head
+      this.head = this.head?.next
+      return head?.value
+    }
 
-    while (temp) {
-      if (count === index - 1) {
-        node.next = temp.next
-        temp.next = node
+    for (
+      let curr = this.head,
+        prev: ListNode<T> | undefined = undefined,
+        count = 0;
+      curr;
+      prev = curr, curr = curr.next, count++
+    ) {
+      if (count === index && prev) {
+        this.length = Math.max(0, this.length - 1)
+        if (index === this.length - 1) {
+          this.tail = prev
+        }
+        prev.next = curr.next
+        return curr.value
       }
-      count++
-      temp = temp.next
+    }
+
+    return
+  }
+
+  /*
+   * Remove the first occurence of the node value, return boolean
+   * */
+  remove(value: T): boolean {
+    if (this.head?.value === 0) {
+      this.length = Math.max(0, this.length - 1)
+      this.head = this.head?.next
+      return true
+    }
+
+    for (
+      let curr: ListNode<T> | undefined = this.head,
+        prev: ListNode<T> | undefined = undefined;
+      curr;
+      prev = curr, curr = curr.next
+    ) {
+      if (curr.value === value && prev) {
+        this.length = Math.max(0, this.length - 1)
+
+        if (this.tail?.value === value) {
+          this.tail = prev
+        }
+
+        prev.next = curr.next
+        return true
+      }
+    }
+
+    return false
+  }
+
+  /*
+   * Return an array containing all elements in the list
+   * */
+  toArray(): T[] {
+    const arr: T[] = []
+    for (let curr = this.head; curr; curr = curr.next) {
+      arr.push(curr.value)
+    }
+
+    return arr
+  }
+
+  /*
+   * Set an element at the specified index
+   * */
+  set(index: number, value: T): T | undefined {
+    if (index < 0 || index >= this.length) return
+
+    for (let curr = this.head, count = 0; curr; curr = curr.next, count++) {
+      if (count === index) {
+        curr.value = value
+        return value
+      }
     }
   }
 }
