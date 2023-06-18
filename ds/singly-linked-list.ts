@@ -182,4 +182,22 @@ export default class SinglyLinkedList<T> {
       }
     }
   }
+
+  /*
+   *  Reverse the list
+   * */
+  reverse(): void {
+    let curr = this.head,
+      prev: ListNode<T> | undefined = undefined,
+      next: ListNode<T> | undefined = undefined
+
+    while (curr) {
+      next = curr.next
+      curr.next = prev
+      prev = curr
+      curr = next
+    }
+
+    this.head = prev
+  }
 }

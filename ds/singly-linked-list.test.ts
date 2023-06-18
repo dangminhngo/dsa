@@ -34,4 +34,7 @@ test("singly linked list", () => {
   expect(list.toArray()).toStrictEqual([3, 1, 9, 13])
   list.set(1, 8)
   expect(list.get(1)).toBe(8)
+
+  list.reverse()
+  expect(list.toArray()).toStrictEqual([13, 9, 8, 3])
 })
