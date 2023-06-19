@@ -39,6 +39,11 @@ test("singly linked list", () => {
   expect(list.length).toBe(1)
   expect(list.remove(100)).toBeFalsy()
   expect(list.toArray()).toStrictEqual([1])
+
+  list.append(2)
+  list.append(3)
+  list.reverse()
+  expect(list.toArray()).toStrictEqual([3, 2, 1])
 })
 
 test("doubly linked list", () => {

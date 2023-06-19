@@ -165,6 +165,28 @@ export class SinglyLinkedList<T> {
   }
 
   /*
+   * Reverse the list
+   * */
+  reverse(): void {
+    if (this.length < 2) {
+      return
+    }
+
+    let curr = this.head,
+      prev: ListNode<T> | undefined,
+      next: ListNode<T> | undefined
+
+    while (curr) {
+      next = curr.next
+      curr.next = prev
+      prev = curr
+      curr = next
+    }
+
+    this.head = prev
+  }
+
+  /*
    *  Get the node at the specified index
    * */
   private getNode(index: number): ListNode<T> | undefined {
