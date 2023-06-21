@@ -12,6 +12,12 @@
       "~/*": ["./*"]
     }
   },
-  "include": ["dsa/**/*.ts", "leetcode/**/*.ts", "__tests__/**/*.ts"],
+  "include": [
+    "ds/**/*.ts",
+    "leetcode/**/*.ts",
+    "recursion/**/*.ts",
+    "searching/**/*.ts",
+    "sorting/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
